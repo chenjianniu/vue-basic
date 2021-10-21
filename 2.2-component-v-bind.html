@@ -1,0 +1,31 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <cp1
+        v-for="data in items"
+        v-bind:item="data"
+      >
+      </cp1>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          items: [
+            { id: 1, name: 'yi' },
+            { id: 2, name: 'er' },
+            { id: 3, name: 'san' },
+          ]
+        }
+      }
+    }
+    const app = Vue.createApp(funList);
+    app.component('cp1', {
+      props: ['item'],
+      template: `{{ item.id + item.name + '_' }}`,
+    })
+    app.mount('#app');
+  </script>
+</html>

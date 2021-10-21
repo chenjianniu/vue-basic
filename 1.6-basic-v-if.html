@@ -1,0 +1,26 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id="app">
+      <span v-if='msg === 1'>
+        <h6>看到了1</h6>
+      </span>
+      <span v-else-if='msg === 2'>
+        <h6>看到了2</h6>
+      </span>
+      <span v-else>
+        <h6>看到了其他</h6>
+      </span>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          msg: 3
+        }
+      }
+    }
+    Vue.createApp(funList).mount('#app')
+  </script>
+</html>

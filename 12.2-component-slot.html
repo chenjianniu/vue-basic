@@ -1,0 +1,21 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <slot-a>zhangsan</slot-a>
+    </div>
+  </body>
+  <script>
+    const funList = {};
+    const app = Vue.createApp(funList);
+    app.component('slot-a', {
+      template: `
+        <div>
+          <h3>hello world</h3>
+          <slot></slot>
+        </div>
+      `
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

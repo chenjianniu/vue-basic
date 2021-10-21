@@ -1,0 +1,32 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <custom-input
+        :model-value="searchText"
+        @update:model-value="searchText = $event"
+      ></custom-input>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          searchText: '',
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('custom-input', {
+      props: ['modelValue'],
+      emits: ['update:modelValue'],
+      template: `
+        <input
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        >
+      `
+    });
+    const vm = app.mount('#app');
+  </script>
+</html>

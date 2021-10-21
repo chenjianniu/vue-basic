@@ -1,0 +1,20 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <input v-model.lazy='msg' />
+      <textarea v-model='msg'></textarea>
+      <p>message: {{ msg }}</p>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          msg: '',
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

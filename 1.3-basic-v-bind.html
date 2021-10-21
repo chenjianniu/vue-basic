@@ -1,0 +1,21 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id="app">
+      <span v-bind:title="message">鼠标悬停查看绑定提示信息</span>
+      <!-- <a v-bind:href="url">百度</a> -->
+      <a :href="url">百度</a>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          message: `tip: ${new Date().toLocaleString()}`,
+          url: 'https://www.baidu.com/',
+        }
+      }
+    }
+    Vue.createApp(funList).mount("#app")
+  </script>
+</html>

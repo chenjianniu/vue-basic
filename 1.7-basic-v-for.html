@@ -1,0 +1,50 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id="app">
+      <button @click='pushMe'>push</button>
+      <ul>
+        <li v-for="item of items1" :key='item.id'>
+          {{item.id}} - {{item.name}}
+        </li>
+        <hr />
+        <li v-for="(item, index) of items1" :key='item.id'>
+          {{ index }}: {{item.id}} - {{item.name}}
+        </li>
+        <hr />
+        <li v-for="item of items2" :key='item.id'>
+          {{ item }}
+        </li>
+        <hr />
+        <li v-for="(value, key, index) of items2" :key='index'>
+          {{ index }}: {{ key }} - {{ value }}
+        </li>
+        <hr />
+      </ul>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          items1: [
+            { id: 1, name: 'a' },
+            { id: 2, name: 'b' },
+            { id: 3, name: 'c' },
+          ],
+          items2: {
+            id: 1,
+            name: 'a',
+          }
+        }
+      },
+      methods: {
+        pushMe() {
+          // this.items1.push({ id: 4, name: 'd' });
+          this.items2 = Object.assign(this.items2, { age: 18 });
+        }
+      }
+    }
+    Vue.createApp(funList).mount('#app')
+  </script>
+</html>

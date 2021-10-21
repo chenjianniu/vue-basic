@@ -1,0 +1,23 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id="app">
+      Counter: {{ counter }}
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          counter: 0
+        }
+      },
+      mounted() {
+        setInterval(() => {
+          this.counter ++
+        }, 1000)
+      }
+    }
+  Vue.createApp(funList).mount('#app')
+  </script>
+</html>

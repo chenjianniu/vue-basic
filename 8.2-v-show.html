@@ -1,0 +1,18 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <span v-show='seen'>显示</span>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          seen: true,
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

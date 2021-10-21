@@ -1,0 +1,19 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      {{ rawHtml }}
+      <h1 v-html='rawHtml'></h1>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          rawHtml: '<h1>hello</h1>'
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

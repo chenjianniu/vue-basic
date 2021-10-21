@@ -1,0 +1,58 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <span>
+        <form v-on:submit.prevent='addItem' >
+          <input v-model='name' />
+          <button>Add</button>
+        </form>
+      </span>
+      <ul>
+        <button-a
+          v-for='(item, index) of items'
+          :items='items'
+          :index='index'
+          :name='item.name'
+        >
+        </button-a>
+      </ul>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          name: '',
+          items: [
+            { name: 'a' },
+            { name: 'b' },
+            { name: 'c' },
+          ],
+        }
+      },
+      methods: {
+        addItem() {
+          this.items.push({ name: `add_${this.name}` });
+          this.index++;
+        },
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('button-a', {
+      template: `
+        <li>
+          {{ name }}
+          <button v-on:click="removeItem">remove</button>
+        </li>
+      `,
+      props: ['items', 'index', 'name'],
+      methods: {
+        removeItem() {
+          this.items.splice(this.index, 1);
+        },
+      }
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

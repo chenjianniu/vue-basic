@@ -1,0 +1,29 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage('msg', $event), todo()">反转 message</button>
+      <!-- <button @click='reverseMessage'>反转 message</button> -->
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          message: 'Hello World'
+        }
+      },
+      methods: {
+        reverseMessage(data, event) {
+          this.message = this.message.split('').reverse().join('')
+          console.log('m1');
+        },
+        todo() {
+          console.log('m2');
+        }
+      }
+    }
+    Vue.createApp(funList).mount("#app")
+  </script>
+</html>

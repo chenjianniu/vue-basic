@@ -1,0 +1,26 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <a v-bind:[attributename]='url'>百度</a>
+      <button v-on:[eventname]='doSoming'>doSoming</button>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          attributename: 'href',
+          url: 'https://www.baidu.com',
+          eventname: 'click',
+        }
+      },
+      methods: {
+        doSoming() {
+          console.log('doSoming');
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

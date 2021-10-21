@@ -1,0 +1,25 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <h-3 h-value='hello'></h-3>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          hValue: ''
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('h-3', {
+      props: ['hValue'],
+      template: `
+        <h3>{{ hValue }}</h3>
+      `,
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

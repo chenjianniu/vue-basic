@@ -1,0 +1,51 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <button
+        v-for='item of items'
+        v-on:click='changeDiv(item)'
+      >
+        {{ item }}
+      </button>
+      <component v-bind:is='currentDivCom'></component>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          currentDiv: 'div-1',
+          items: ['div-1', 'div-2', 'div-3'],
+        }
+      },
+      computed: {
+        currentDivCom() {
+          return this.currentDiv;
+        }
+      },
+      methods: {
+        changeDiv(data) {
+          this.currentDiv = data;
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('div-1', {
+      template: `
+        <div>1-a</div>
+      `
+    });
+    app.component('div-2', {
+      template: `
+        <div>2-b</div>
+      `
+    });
+    app.component('div-3', {
+      template: `
+        <div>3-c</div>
+      `
+    });
+    const vm = app.mount('#app');
+  </script>
+</html>

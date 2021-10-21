@@ -1,0 +1,28 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      {{ checkSize }}
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          dataList: [
+            { id: 1, name: 'a'},
+            { id: 2, name: 'b'},
+            { id: 3, name: 'c'},
+            { id: 4, name: 'd'},
+          ],
+        };
+      },
+      computed: {
+        checkSize() {
+          return this.dataList.size;
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

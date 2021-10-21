@@ -1,0 +1,24 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'></div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          count: 0,
+        }
+      },
+      methods: {
+        add() {
+          return this.count++;
+        }
+      }
+    };
+    const vm = Vue.createApp(funList).mount('#app');
+    console.log(vm.count);
+    vm.add();
+    console.log(vm.count);
+  </script>
+</html>

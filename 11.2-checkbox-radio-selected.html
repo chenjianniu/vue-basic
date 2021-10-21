@@ -1,0 +1,49 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <input type='checkbox' v-model='checked_single' />
+      <label>{{ checked_single }}</label>
+      <hr />
+      <input type='checkbox' v-model='checked_multi' value='a' />
+      <input type='checkbox' v-model='checked_multi' value='b' />
+      <input type='checkbox' v-model='checked_multi' value='c' />
+      <label>{{ checked_multi }}</label>
+      <hr />
+      <input type='radio' v-model='radio' value='a' />
+      <input type='radio' v-model='radio' value='b' />
+      <input type='radio' v-model='radio' value='c' />
+      <label>{{ radio }}</label>
+      <hr />
+      <select v-model='selected_single'>
+        <option disabled value=''>please selected</option>
+        <option>a</option>
+        <option>b</option>
+        <option>c</option>
+      </select>
+      <label>{{ selected_single }}</label>
+      <hr />
+      <select v-model='selected_multi' multiple>
+        <option disabled value=''>please selected</option>
+        <option>a</option>
+        <option>b</option>
+        <option>c</option>
+      </select>
+      <label>{{ selected_multi }}</label>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          checked_single: true,
+          checked_multi: [],
+          radio: '',
+          selected_single: '',
+          selected_multi: [],
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

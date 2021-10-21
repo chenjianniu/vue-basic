@@ -1,0 +1,35 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <ul v-for='item in items' key='item.id'>
+        <li v-if='item.id === 1'>
+          {{ item }}
+        </li>
+      </ul>
+      <hr />
+      <ul v-for='item in filter(items)'>
+        <li>{{ item }}</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          items: [
+            { id: 1, name: 'a' },
+            { id: 2, name: 'b' },
+            { id: 3, name: 'c' },
+          ]
+        }
+      },
+      methods: {
+        filter() {
+          return this.items.filter((value) => value.id === 1);
+        }
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>
