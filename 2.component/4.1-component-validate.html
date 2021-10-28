@@ -1,0 +1,33 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-button></my-button>
+    </div>
+  </body>
+  <script>
+    const funList = {};
+    const app = Vue.createApp(funList);
+    app.component('my-button', {
+      emits: {
+        click: ({ id, name}) => {
+          if (id && name) {
+            console.info(`id: ${id}, name: ${name}`);
+            return true;
+          }
+          console.warn('invalid info');
+          return false;
+        }
+      },
+      methods: {
+        clickButton(id, name){
+          this.$emit('click', {id, name});
+        }
+      },
+      template: `
+        <button @click="clickButton(1, 'zhangsan')">hello</button>
+      `,
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

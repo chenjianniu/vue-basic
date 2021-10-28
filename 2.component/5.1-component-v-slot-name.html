@@ -1,0 +1,36 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-div>
+        <template v-slot:header>
+          <p>第一行</p>
+        </template>
+        <template v-slot:default>
+          <p>第二行(default)</p>
+        </template>
+        <template v-slot:footer>
+          <p>第三行</p>
+        </template>
+      </my-div>
+    </div>
+  </body>
+  <script>
+    const funList = {};
+    const app = Vue.createApp(funList);
+    app.component('my-div', {
+      template:`
+        <div>
+          <slot name="header"></slot>
+        </div>
+        <div>
+          <slot></slot>
+        </div>
+        <div>
+          <slot name="footer"></slot>
+        </div>
+      `
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

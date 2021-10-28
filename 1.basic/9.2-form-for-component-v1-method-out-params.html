@@ -13,7 +13,7 @@
           v-for='(item, index) of items'
           :name='item.name'
           :index='index'
-          @emit_remove='removeItem'
+          @emit-remove='removeItem'
         >
         </button-a>
       </ul>
@@ -37,9 +37,7 @@
           this.index++;
         },
         removeItem(index, msg) {
-          console.log('index', index);
-          console.log('msg', msg);
-          // this.items.splice(index, 1);
+          this.items.splice(index, 1);
         }
       }
     };
@@ -48,7 +46,7 @@
       template: `
         <li>
           {{ name }}
-          <button v-on:click="$emit('emit_remove', index, 'hello')">remove</button>
+          <button v-on:click="$emit('emitRemove', index, 'hello')">remove</button>
         </li>
       `,
       props: ['index', 'name'],

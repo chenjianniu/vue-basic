@@ -1,0 +1,27 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <p>{{ say }}</p>
+      <my-input v-model:title="say"></my-input>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          say: 'hello',
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('my-input', {
+      props: ['title'],
+      emits:['update:title'],
+      template: `
+        <input type="text" :value="title" @input="$emit('update:title', $event.target.value)" />
+      `,
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

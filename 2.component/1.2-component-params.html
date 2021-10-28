@@ -1,0 +1,35 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-div title='hello'></my-div>
+      <my-div v-bind:id='address.id'></my-div>
+      <my-div :id='address.id'></my-div>
+      <my-div :id="address.id + ' in ' + address.id"></my-div>
+      <my-div v-bind='address'></my-div>
+      <my-div v-bind:id='address.id' v-bind:title='address.title'></my-div>
+      <my-div :title='address'></my-div>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          title: '',
+          address: {
+            id: '100',
+            title: 'shunyi',
+          }
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('my-div', {
+      props: ['id', 'title'],
+      template: `
+        <h3>{{ id }} - {{ title }}</h3>
+      `,
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

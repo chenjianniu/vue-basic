@@ -1,0 +1,32 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-slot>
+        zhangsan
+        <i>hello</i>
+        <hr />
+        {{ msg }}
+      </my-slot>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          msg: 'world',
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('my-slot', {
+      template: `
+        <div>
+          <h3>hello world</h3>
+          <slot>say hi</slot>
+        </div>
+      `
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

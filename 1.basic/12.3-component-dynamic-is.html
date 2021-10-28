@@ -8,14 +8,16 @@
       >
         {{ item }}
       </button>
-      <component v-bind:is='currentDivCom'></component>
+      <keep-alive>
+        <component v-bind:is='currentDivCom'></component>
+      </keep-alive>
     </div>
   </body>
   <script>
     const funList = {
       data() {
         return {
-          currentDiv: 'div-1',
+          currentDiv: 'div-2',
           items: ['div-1', 'div-2', 'div-3'],
         }
       },
@@ -44,6 +46,7 @@
     app.component('div-3', {
       template: `
         <div>3-c</div>
+        <input />
       `
     });
     const vm = app.mount('#app');

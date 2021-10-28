@@ -1,0 +1,28 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-div-a></my-div-a>
+      <my-div-b></my-div-b>
+    </div>
+  </body>
+  <script>
+    const myDivA = {
+      template: `
+        <h3>hello a</h3>
+      `
+    };
+    const myDivB = {
+      template: `
+        <h3>hello b</h3>
+      `
+    };
+    const funList = {
+      components: {
+        'my-div-a': myDivA,
+        'my-div-b': myDivB,
+      }
+    };
+    Vue.createApp(funList).mount('#app');
+  </script>
+</html>

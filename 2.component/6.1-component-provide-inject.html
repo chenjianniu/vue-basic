@@ -1,0 +1,41 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-div>
+      </my-div>
+    </div>
+  </body>
+  <script>
+    const funList = {};
+    const app = Vue.createApp(funList);
+    app.component('my-div', {
+      data() {
+        return {
+          items: ['a', 'b', 'c']
+        }
+      },
+      provide: {
+        name: 'hello'
+      },
+      template: `
+        <div>
+          {{ items }}
+          <my-div-child></my-div-child>
+        </div>
+      `
+    });
+    app.component('my-div-child', {
+      created() {
+        console.log('name: ', this.name);
+      },
+      inject: ['name'],
+      template: `
+        <div>
+          {{ name }}
+        </div>
+      `
+    });
+    const vm = app.mount('#app');
+  </script>
+</html>

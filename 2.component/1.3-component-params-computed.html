@@ -1,0 +1,30 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-div title='hello'></my-div>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          title: ''
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('my-div', {
+      props: ['title'],
+      template: `
+        <h3>{{ normalizedSize }}</h3>
+      `,
+      computed: {
+        normalizedSize() {
+          return `init ${this.title}`;
+        }
+      }
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>

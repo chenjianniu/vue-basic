@@ -1,0 +1,28 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <my-input>
+      </my-input>
+    </div>
+  </body>
+  <script>
+    const funList = {};
+    const app = Vue.createApp(funList);
+    app.component('my-input', {
+      mounted() {
+        this.focusInput();
+      },
+      template: `
+      <input />
+      <input ref="a" />
+      `,
+      methods: {
+        focusInput() {
+          this.$refs.a.focus();
+        }
+      },
+    });
+    const vm = app.mount('#app');
+  </script>
+</html>

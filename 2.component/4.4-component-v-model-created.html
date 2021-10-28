@@ -1,0 +1,47 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+  <body>
+    <div id='app'>
+      <p>{{ say }}</p>
+      <my-input v-model.capitalize="say"></my-input>
+    </div>
+  </body>
+  <script>
+    const funList = {
+      data() {
+        return {
+          say: 'hello',
+        }
+      }
+    };
+    const app = Vue.createApp(funList);
+    app.component('my-input', {
+      created() {
+        console.log('this.modelModifiers1: ', this.modelModifiers);
+      },
+      emits:['update:modelValue'],
+      template: `
+        <input type="text" :value="modelValue" @input="emitValue" />
+      `,
+      props: {
+        modelValue: String,
+        modelModifiers: {
+          default: () => ({})
+        },
+      },
+      methods: {
+        emitValue(e) {
+          console.log('this.modelModifiers.capitalize', this.modelModifiers.capitalize);
+          let value = e.target.value;
+          if (this.modelModifiers.capitalize) {
+            // value = 'Hello';
+          }
+          console.log('value', value);
+          this.$emit('update:modelValue', value);
+        }
+      },
+
+    })
+    const vm = app.mount('#app');
+  </script>
+</html>
