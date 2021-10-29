@@ -1,17 +1,13 @@
+<template>
+  <p>{{ say }}</p>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        greeting: 'Hello World!'
-      }
+export default {
+  data() {
+    return {
+      say: 'hi'
     }
   }
+}
 </script>
-
-<template>
-  <div id="app">
-   <p>{{ greeting }}</p>
-   <div>ddddd</div>
-  </div>
-</template>

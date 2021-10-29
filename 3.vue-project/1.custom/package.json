@@ -1,22 +1,20 @@
 {
-  "name": "3.test",
+  "name": "1.custom",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "webpack-defaults": "webpack-defaults"
+    "lint": "vue-cli-service lint"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.2.20"
   },
   "devDependencies": {
-    "@vue/cli-service": "^4.5.14",
-    "@vue/compiler-sfc": "^3.2.20",
-    "vue-template-compiler": "^2.6.14"
+    "@vue/cli-service": "^4.5.15"
   }
 }
